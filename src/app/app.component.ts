@@ -61,15 +61,12 @@ export class AppComponent {
   editData(index) {
     this.saveIndex = index;
     this.data = Object.create(this.dataArray[this.saveIndex]);
-    console.log(this.data);
   }
   saveChanges() {
-    console.log(this.data);
     Object.assign(this.dataArray[this.saveIndex], this.data);
     this.data = {};
   }
   closeEdit() {
     this.data = {};
   }
-
 }
