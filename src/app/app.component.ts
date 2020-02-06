@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { User } from './user.model';
+import { Data } from './data.model';
 import { NgForm } from '@angular/forms';
 import { Injectable } from '@angular/core';
 import DataFromFile from '../assets/data.json';
@@ -12,9 +12,9 @@ import DataFromFile from '../assets/data.json';
 export class AppComponent {
   private textareaValue: string = '';
   private saveIndex: any;
-  private dataArray = new Array<User>();
-  private newData: User = new User();
-  private data: any = new User();
+  private dataArray = new Array<Data>();
+  private newData: Data = new Data();
+  private data: any = new Data();
   private dataKeys: Array<string>;
   private dataFromFile: object = DataFromFile;
   private parsingComplete: boolean = false;
@@ -61,15 +61,12 @@ export class AppComponent {
   editData(index) {
     this.saveIndex = index;
     this.data = Object.create(this.dataArray[this.saveIndex]);
-    console.log(this.data);
   }
   saveChanges() {
-    console.log(this.data);
     Object.assign(this.dataArray[this.saveIndex], this.data);
     this.data = {};
   }
   closeEdit() {
     this.data = {};
   }
-
 }
